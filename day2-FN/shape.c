@@ -1,10 +1,26 @@
-def calculate_area(shape, size):
-    if shape == 'S':
-        area = size ** 2
-        print(f"Area of Square = {area}")
-    elif shape == 'C':
-        import math
-        area = math.pi * (size ** 2)
-        print(f"Area of Circle = {area:.2f}")
-calculate_area('S', 4)
-calculate_area('C', 4)
+#include <stdio.h>
+
+int main()
+{
+	float size,area;
+	char shape,square = 'S',circle = 'C';
+	printf("Shape=");
+	scanf("%c",&shape);
+	printf("Size=");
+	scanf("%f",&size);
+	if(shape == square )
+	{
+		area = size*size;
+		printf("Area of Square = %f",area);
+	}
+	else if(shape == circle )
+	{
+		area = 3.14 * size*size;
+		printf("Area of Circle = %f",area);
+	}
+	else
+	{
+		printf("Error");
+	}
+	return 0;
+}
