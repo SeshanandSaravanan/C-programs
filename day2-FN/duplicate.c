@@ -1,13 +1,49 @@
-def print_duplicate_elements(arr):
-    n = len(arr)
-    i = 0
-    while i < n:
-        count = 1
-        while i < n - 1 and arr[i] == arr[i + 1]:
-            count += 1
-            i += 1
-        if count > 1:
-            print(f"{arr[i]}->{count}", end=", ")
-        i += 1
-arr = [1, 1, 1, 2, 4, 4, 4, 4, 5, 6, 9, 9]
-print_duplicate_elements(arr)
+#include <stdio.h>
+
+int main()
+{
+    int i = 0, no_of_element, occurrence = 1, j = 1;
+    int array[100], taken_number;
+    
+    printf("N=");
+    scanf("%d", &no_of_element);
+
+    for (i = 0; i < no_of_element; i++)
+    {
+        scanf("%d", &array[i]);
+    }
+
+    printf("Sorted Array: ");
+    for (i = 0; i < no_of_element; i++)
+    {
+        printf("%d ", array[i]);
+    }
+    
+    printf("\n");
+
+    taken_number = array[0];
+    
+    for (i = 1; i < no_of_element; i++)
+    {
+        if (taken_number == array[i])
+ {
+            occurrence++;
+        }
+        else
+        {
+            if (occurrence > 1)
+            {
+                printf("%d->%d, ", taken_number, occurrence);
+            }
+            taken_number = array[i];
+            occurrence = 1;
+        }
+    }
+
+    if (occurrence > 1)
+    {
+        printf("%d->%d", taken_number, occurrence);
+    }
+
+    return 0;
+}
