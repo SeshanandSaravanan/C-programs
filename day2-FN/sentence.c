@@ -1,20 +1,42 @@
-def justify_sentence(sentence, screen_length):
-    words = sentence.split()
-    total_spaces = screen_length - len(sentence)
-    num_gaps = len(words) - 1
-    if num_gaps == 0:
-        spaces_between_words = total_spaces
-        extra_spaces = 0
-    else:
-        spaces_between_words = total_spaces 
-        extra_spaces = total_spaces % num_gaps
-    justified_sentence = words[0]
-    for i in range(1, len(words)):
-        spaces = '*' * spaces_between_words
-        if extra_spaces > 0:
-            spaces += '*'
-            extra_spaces -= 1
-        justified_sentence += spaces + words[i]
-    print(justified_sentence)
-justify_sentence("Welcome to Zoho Corporation", 34)
-justify_sentence("Welcome to Zoho Corporation", 36)
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char sentence[1000];
+    int screenLength;
+
+    printf("Sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+
+    printf("Screen length: ");
+    scanf("%d", &screenLength);
+
+    if (sentence[strlen(sentence) - 1] == '\n') {
+        sentence[strlen(sentence) - 1] = '\0';
+    }
+
+    int spaceCount = 0;
+    for (int i = 0; sentence[i] != '\0'; i++) {
+        if (sentence[i] == ' ') {
+            spaceCount++;
+        }
+    }
+
+    int starsToAdd = screenLength - strlen(sentence) + spaceCount;
+
+    printf("Justified Sentence: ");
+    for (int i = 0; sentence[i] != '\0'; i++) {
+        if (sentence[i] == ' ') {
+            for (int j = 0; j < starsToAdd / spaceCount; j++) {
+                printf("*");
+            }
+            starsToAdd -= starsToAdd / spaceCount; 
+        } else {
+            printf("%c", sentence[i]);
+        }
+    }
+
+    printf("\n");
+
+    return 0;
+}
