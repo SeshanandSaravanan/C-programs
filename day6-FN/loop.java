@@ -1,4 +1,4 @@
-public class PermutationsNestedLoops {
+public class Loops {
     public static void main(String[] args) {
         int[] nums = {1, 4, 3};
         permute(nums);
