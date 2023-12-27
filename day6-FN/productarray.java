@@ -1,4 +1,4 @@
-public class ProductArray {
+public class Productarray {
     public static void main(String[] args) {
         int[] input = {1, 2, 3, 4};
         int[] output = productExceptSelf(input);
