@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-public class ClubbedWords {
+public class Clubbed {
     public static List<String> findClubbedWords(String[] words) {
         List<String> result = new ArrayList<>();
         for (int i = 0; i < words.length; i++) {
